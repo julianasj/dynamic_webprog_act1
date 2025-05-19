@@ -1,0 +1,58 @@
+<?php
+    echo "[CHECK IF NUMBER IS ODD OR EVEN]\n";
+    $num = readline("Input a number: ");
+
+    if ($num % 2 == 0) {
+        echo "{$num} is Even.\n";
+    } else {
+        echo "{$num} is Odd.\n";
+    }
+
+    echo "[SHORT CIRCUITED VERSION OF CHECKING IF NUMBER IS ODD OR EVEN]\n";
+    $num1 = readline("Input a number: ");
+    $result = "Odd";
+
+    if ($num1 % 2 == 0) {
+        $result = "Even";
+    }
+
+    echo "{$num1} is {$result}.";
+    
+    echo "[IDENTIFY IF A NUMBER IS A PRIME NUMBER]\n";
+    $numPrime = readline("Input a number: ");
+    
+    function isPrime($numPrime) {
+        if ($numPrime < 2) {
+            return "{$numPrime} is not prime.\n";
+        }
+        if ($numPrime == 2) {
+            return "{$numPrime} is prime.\n";
+        }
+        if ($numPrime % 2 == 0) {
+            return "{$numPrime} is not prime.\n";
+        }
+
+        $sqrtNumber = sqrt($numPrime);
+        for ($i = 3; $i <= $sqrtNumber; $i += 2) {
+            if ($numPrime % $i === 0) {
+                return "{$numPrime} is not prime.\n";
+            }
+        }
+        return "{$numPrime} is prime.\n";
+    }
+
+
+    if (!is_numeric($numPrime)) {
+        echo "Invalid input.";
+        exit;
+    }
+    $numPrime = (int)$numPrime;
+    for ($ctr=0;$ctr<=$numPrime;$ctr++) {
+        echo isPrime($ctr);
+    }
+
+
+
+
+
+?>

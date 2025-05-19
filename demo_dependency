@@ -1,0 +1,16 @@
+<?php
+    require __DIR__ . '/vendor/autoload.php';
+
+    use Cocur\Slugify\Slugify;
+    use Ramsey\Uuid\Uuid;
+
+    $slugify = new Slugify();
+    echo $slugify->slugify("This is a new title.") . "\n";
+
+    $uuid = Uuid::uuid4();
+    echo $uuid->toString() . "\n";
+
+    $faker = Faker\Factory::create();
+    echo $faker->name() . "\n";
+    echo $faker->email() . "\n";
+    echo $faker->text() . "\n";
